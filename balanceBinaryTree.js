@@ -34,13 +34,13 @@ var isBalanced = (root) => {
 //   return flag
 // }
 
-function sum (a) {
-  if (!a) return 0
+// function sum (a) {
+//   if (!a) return 0
 
-  return (b) => {
-    if (b) return sum(a + b)
-    else return a
-  }
-}
-let res = sum(1)(2)(4)
-console.log(res)
+//   return (b) => {
+//     if (b) return sum(a + b)
+//     else return a
+//   }
+// }
+// let res = sum(1)(2)(4)
+// console.log(res)

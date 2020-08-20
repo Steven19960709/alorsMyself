@@ -14,3 +14,5 @@ lengthOfLongString () {
   }
   return max
 }
+
+// 使用窗口来计算，窗口滑过的字符，不再滑动
