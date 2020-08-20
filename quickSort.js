@@ -1,15 +1,9 @@
 // quickSort 快排
-let a = 0
 function quickSort (arr) {
-  // if ()
-  if (a > 13) return []
   if (!arr.length) return []
   if (arr.length <= 1) return arr
   let pivotIndex = Math.floor(arr.length / 2)
-  let pivot = arr[pivotIndex]
-  console.log(pivot)
-  // var pivot1 = arr.splice(pivotIndex, 1)[0];
-  // console.log(pivot1, pivot)
+  let pivot = arr.splice(pivotIndex, 1)[0] // 这里注意是剪切，不是直接赋值
   let left = []
   let right = []
   for (let i = 0; i < arr.length; i++) {
@@ -19,8 +13,6 @@ function quickSort (arr) {
       right.push(arr[i])
     }
   }
-  console.log(left, right)
-  a += 1
   return quickSort(left).concat([pivot], quickSort(right))
 }
 
