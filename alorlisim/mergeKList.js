@@ -31,7 +31,6 @@ function merge2List (l1, l2) {
       cur = cur.next
       l1 = l1.next
     } else {
-      // l2.next = 
       cur.next = l2
       cur = l2.next
       l1 = l1.next
