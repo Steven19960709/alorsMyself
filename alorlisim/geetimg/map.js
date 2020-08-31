@@ -1,7 +1,6 @@
-let container = document.getElementById('container')
 function sleep (ms) {
   return new Promise((resolve) => {
-    setTimeout(ßresolve(), ms)
+    setTimeout(resolve(), ms)
   })
 }
 async function path (map, start, end) {
@@ -26,3 +25,4 @@ async function path (map, start, end) {
   }
   return false
 }
+
