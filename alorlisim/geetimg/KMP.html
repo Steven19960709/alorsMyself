@@ -1,0 +1,45 @@
+<script>
+  //kmp 字符串的模式匹配算法，原串和pattern串待查的串
+  // 暴力算法，O（m+n）复杂度
+  // kmp算法：关注字符串的自重复行为。根据模式串计算出跳转表格， 然后拿模式串和原串进行对比
+
+  function kmp (source, pattern) {
+    let table = new Array(pattern.length).fill(0)
+    {
+      let i = 1, j = 0
+      while ( i < pattern.length) {
+        if (pattern[i] === pattern[j]) {
+          // 有自重复
+            ++i, ++j
+            table[i] = j // 做一个标记
+        } else {
+          if (j > 0) {
+            j = table[i]
+          } else {
+            ++i
+          }
+        }
+      }
+    }
+    {
+      let i = 0, j = 0
+      while ( i < source.length) {
+        if (pattern[j] === source[i]) {
+          ++i, ++j
+          // table[i] = j // 做一个标记
+        } else {
+          if (j > 0) {
+            j = table[j]
+          } else {
+            ++i
+          }
+        }
+        if (j === pattern.length ) return true
+      }
+      return false
+    }
+    
+  }
+
+  console.log(kmp('hello', 'll'))
+</script>
