@@ -21,12 +21,12 @@
         }
       }
     }
+    console.log(table)
     {
       let i = 0, j = 0
       while ( i < source.length) {
         if (pattern[j] === source[i]) {
           ++i, ++j
-          // table[i] = j // 做一个标记
         } else {
           if (j > 0) {
             j = table[j]
@@ -41,5 +41,4 @@
     
   }
 
-  console.log(kmp('hello', 'll'))
 </script>
