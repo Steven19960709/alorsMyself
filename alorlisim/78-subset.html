@@ -1,0 +1,36 @@
+<script>
+//   var subsets = function(nums) {
+//     const ans = [];
+//     const n = nums.length;
+//     for (let mask = 0; mask < 2 ** n - 1; ++mask) {
+//         const t = [];
+//         for (let i = 0; i < n; ++i) {
+//             if (mask & (1 << i)) {
+//                 t.push(nums[i]);
+//                 console.log('mask', mask, 'i', i, '[1 << i]', (1 << i).toString(2))
+//             }
+//         }
+//         console.log('t', t)
+//         ans.push(t);
+//     }
+//     return ans;
+// };
+
+var subsets = function(nums) {
+    let n = nums.length
+    let res = []
+    for (let total = 0; total < 2 ** n; total++) {
+        let set = []
+        for (let i = 0; i < n; i++) {
+            if (total && total & (1 << i)) {
+                set.push(nums[i])
+                console.log('i', i, 'total', total, 'set', set)
+            }
+        }
+        res.push(set)
+    }
+    console.log(res)
+    return res
+};
+subsets([1,2,3,4])
+</script>
