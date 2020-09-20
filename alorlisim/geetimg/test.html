@@ -1,0 +1,37 @@
+<script>
+var longestCommonPrefix = function(strs) {
+  let j = 0
+  let min = strs[0].length
+  let word = ''
+  strs.forEach((item) => {
+      if (item.length <= min) {
+          min = item.length
+          word = item
+      }
+
+  })
+  // max = 5
+  let arr = word.split('')
+  let a = ''
+  while (j < arr.length) {
+    let flag = false
+    let i = 0
+    while (i < strs.length) {
+      if (strs[i][j] === arr[j]) {
+        flag = true
+      }
+      else {
+        flag =false
+        break
+      }
+      i++
+    }
+    if (flag) {
+        a += arr[j]
+    }
+    j++
+  }
+  return a
+};
+console.log(longestCommonPrefix(["flower","flow","floight"]))
+</script>

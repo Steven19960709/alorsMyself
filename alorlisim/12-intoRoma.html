@@ -1,0 +1,93 @@
+
+<script>
+const map = {
+    4: 'IV',
+    9: 'IX',
+    40: 'XL',
+    90: 'XC',
+    400: 'CD',
+    900: 'CM',
+    1: 'I',
+    5: 'V',
+    10: 'X',
+    50: 'L',
+    100: 'C',
+    500: 'D',
+    1000: 'M'
+}
+var intToRoman = function(num) {
+  if (num < 0 || num > 3999) return ''
+  let g = num % 10
+  let s = num % 100 - g
+  let b = num % 1000 - s - g
+  let q = num % 10000 - b - s - g
+  let gewei = geweishu(g)
+  let shiwei = shiweishu (s)
+  let baiwei = baiweishu (b)
+  let qianwei = qianweishu(q)
+  return qianwei + baiwei + shiwei + gewei
+};
+function qianweishu (num) {
+  if (num === 0) return ''
+  if (map[num]) {
+    return map[num]
+  }
+  let s = ''
+  for (let i = 0; i < num; i+=1000) {
+      s += 'M'
+  }
+  return s
+}
+function baiweishu (num) {
+  if (num === 0) return ''
+  if (map[num]) {
+    return map[num]
+  }
+  let s = num > 100 && num < 500 ? '' : 'D'
+  if (num > 500) {
+    for (let i = 500; i < num; i+=100) {
+      s += 'C'
+    }
+    return s
+  }
+  for (let i = 0; i < num; i+=100) {
+      s += 'C'
+  }
+  return s
+}
+function shiweishu (num) {
+  if (num === 0) return ''
+  if (map[num]) {
+    return map[num]
+  }
+  let s = num > 10 && num < 50 ? '' : 'L'
+  if (num > 50) {
+    for (let i = 50; i < num; i+=10) {
+      s += 'X'
+    }
+    return s
+  }
+  for (let i = 0; i < num; i+=10) {
+      s += 'X'
+  }
+  console.log(s, 'shiwei')
+  return s
+}
+function geweishu (num) {
+    if (num === 0) return ''
+    if (map[num]) {
+        return map[num]
+    }
+    let s = num > 1 && num < 5 ? '' : 'V'
+    if (num > 5) {
+      for (let i = 5; i < num; i++) {
+        s += 'I'
+      }
+      return s
+    }
+    for (let i = 0; i < num; i++) {
+        s += 'I'
+    }
+    return s
+}
+</script>
