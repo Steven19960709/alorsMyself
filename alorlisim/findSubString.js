@@ -8,8 +8,26 @@
 
 function findSubString (s, words) {
   if (s === '') return []
-  
+  let len = words.length
+  let a = 0
+  let map = {}
+  while (len > 0) {
+    let result = kmp(s, words[len - 1]) // 存在
+    if (result > 0) {
+      if (map[words[len - 1]]) {
+        map[words[len - 1]].push(result)
+      } else {
+        map[words[len - 1]] = [result]
+      }
+    }
+    len --
+  }
 
+  map.map((item) => {})
+  let allString = words.join()
+  let len = allString.length
+  if (a.length === allString.length) return true
+  return []
 }
 
 function kmp (source, pattern){
