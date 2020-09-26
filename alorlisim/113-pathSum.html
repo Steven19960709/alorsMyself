@@ -1,0 +1,23 @@
+<script>
+// 求出一颗数，根结点到叶子结点所有结点的和
+const res = []
+function sumPath (root, sum) {
+  if (!root) return []
+  bfs(root, sum)
+  return res
+}
+
+// 广度优先搜索 模板
+
+function bfs (root, sum, path = []) {
+  if (!root) return null
+  let cur = [...path, root.val]
+
+  if (!root.left && !root.right && sum === root.val) {
+    res.push(cur)
+    return
+  }
+  bfs(root.left, sum - root.val, cur)
+  bfs(root.right, sum - root.val, cur)
+}
+</script>

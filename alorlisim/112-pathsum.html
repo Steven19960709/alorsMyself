@@ -1,0 +1,7 @@
+<script>
+function hasPath (root, sum) {
+  if (!root) return false
+  if (!root.left && !root.right) return sum === root.val
+  return hasPath(root.left, sum - root.val) || hasPath(root.right, sum - root.val)
+}
+</script>
