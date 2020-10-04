@@ -35,14 +35,14 @@ function longestPalindrome (s) {
   let end = 0
   let max = 0
   let centerExpand = (left, right) => {
-    while(left > 0 && right < length - 1 && s[left] === s[right]) {
+    while(left > 0 && right < len - 1 && s[left] === s[right]) {
       left--
       right++
     }
   }
   for (let i = 0; i < len; i++) {
     let len = centerExpand(i, i)
-    let len2 = centerExpand(i, i+1)
+    let len1 = centerExpand(i, i+1)
     max = Math.max(len, len1)
     if (max > end - start) {
       start = i - ((max - i) >> 1)
@@ -51,3 +51,6 @@ function longestPalindrome (s) {
   }
   return s.substring(start, end + 1)
 }
+let res = longestPalindrome('sweessdfsaawwaa')
+debugger
+console.log(res)
