@@ -1,0 +1,35 @@
+<script>
+
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+ var isValid = function(s) {
+  const len = s.length
+  let arr = []
+  const map = {
+    ')': '(',
+    '}': '{',
+    ']': '['
+  }
+  for (let i of s) {
+    if (!map[i]) { // map里不存在即为左括号
+      arr.push(i)
+    } else {
+      if (map[i] !== arr.pop()) {
+        return false
+      }
+    }
+    if(arr.length > len / 2) {
+        return false;
+    }
+  }
+  if (arr.length > 0) {
+    return false
+  } else {
+    return true
+  }
+};
+
+  console.log(isValid('([[[[]]]))'))
+</script>
