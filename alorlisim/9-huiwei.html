@@ -1,0 +1,23 @@
+<script>
+var isPalindrome = function(x) {
+    if (x === 0) return true
+    if (!x) return false
+    x = String(x)
+    let len = x.length
+    let flag = true
+    let i = 0
+    let j = len - 1
+    if (x < 0) return false
+    while (i >= 0 && j < len && i < j) {
+      console.log(x[i], x[j])
+        if (String(x[i]) !== String(x[j])) {
+            console.log(i, j)
+            flag = false
+            break
+        }
+        i++
+        j--
+    }
+    return flag
+};
+</script>
