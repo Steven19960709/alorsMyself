@@ -17,6 +17,7 @@ function treeToDoubblyList(root) {
       stack.push(node);
       node = node.left;
     } else {
+      // 针对没有左右子节点的情况，更新一个node
       const top = stack.pop();
       if (!pre) {
         head = top;
