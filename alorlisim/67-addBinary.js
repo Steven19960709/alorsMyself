@@ -12,14 +12,25 @@ var addBinary = function(a, b) {
   let ca = 0
   for (let i = a.length - 1, j = b.length - 1; i >= 0 || j >= 0; i--, j--) {
     let sum = ca
-    sum += i >= 0 ? parseInt(a[i]) : 0
-    sum += j >= 0 ? parseInt(a[j]) : 0
+    if (i >= 0) {
+      sum += parseInt(a[i])
+    } else {
+      sum += 0
+    }
+    if (j >= 0) {
+      sum += parseInt(a[j])
+    } else {
+      sum += 0
+    }
     ans += sum % 2
     ca = Math.floor(sum / 2)
   }
-  ans += ca == 1 ? ca : ""
+  if (ca === 1) {
+    ans += ca
+  } else {
+    ans += ""
+  }
   return ans.split('').reverse().join('')
 };
-let res = addBinary("10100000100100110110010000010101111011011001101110111111111101000000101111001110001111100001101",
-"110101001011101110001111100110001010100001101011101010000011011011001011101111001100000011011110011")
+let res = addBinary("11", "11")
 console.log(res)
