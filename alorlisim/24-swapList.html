@@ -1,0 +1,32 @@
+<script>
+var swapPairs = function(head) {
+  // 两两交换节点
+  let preHead = new ListNode(null)
+  preHead.next = head
+  let tmp = preHead
+  while (tmp.next && tmp.next.next) {
+    let n1 = tmp.next
+    let n2 = tmp.next.next
+    tmp.next = n2 // 首次循环，已经改变了prehead的指针，指向第一个交换的节点
+    n1.next = n2.next // 关键，先保留next指针信息
+    n2.next = n1
+    tmp = n1 // 这里改变指针之后，不在影响prehead指针
+  }
+  // console.log(tmp, head)
+  return preHead.next
+};
+
+class ListNode {
+  constructor (val, next) {
+    this.val = val
+    this.next = next
+  }
+}
+
+let a = new ListNode(1, null)
+let b = new ListNode(2, a)
+let c = new ListNode(3, b)
+let head = new ListNode(4, c)
+
+let res = swapPairs(head)
+</script>
