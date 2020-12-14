@@ -10,3 +10,5 @@ function reverse (head, tail) {
   }
   return [tail, head] // 这里的顺序
 }
+
+// 关键 三句赋值
