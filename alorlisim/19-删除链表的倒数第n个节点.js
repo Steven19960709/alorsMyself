@@ -16,3 +16,9 @@ var removeNthFromEnd = function(head, n) {
   first.next = first.next.next;
   return preHead.next;
 };  
+class ListNode {
+  constructor (val, next) {
+    this.val = val
+    this.next = next
+  }
+}
