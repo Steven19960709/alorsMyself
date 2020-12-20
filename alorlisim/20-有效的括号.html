@@ -24,11 +24,7 @@
         return false;
     }
   }
-  if (arr.length > 0) {
-    return false
-  } else {
-    return true
-  }
+  return !(arr.length > 0)
 };
 
   console.log(isValid('([[[[]]]))'))
