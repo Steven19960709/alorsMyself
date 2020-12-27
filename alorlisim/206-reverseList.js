@@ -12,3 +12,6 @@ function reverse (head, tail) {
 }
 
 // 关键 三句赋值
+function reverse (head, tail) {
+  let prev tail.next
+}

@@ -1,7 +1,8 @@
 // 去除重复字母 并且返回字典序 最小的字符串
+const _ = require("lodash")
 var removeDuplicateLetters = function(s) {
-  const vis = new Array(26).fill(0);
-  const num = _.countBy(s);
+  const vis = new Array(26).fill(0); // 搞一个布尔型数组
+  const num = _.countBy(s); // 
   
   const sb = new Array();
   for (let i = 0; i < s.length; i++) {
@@ -22,3 +23,5 @@ var removeDuplicateLetters = function(s) {
   }
   return sb.join('');
 };
+let res = removeDuplicateLetters('acddacd')
+console.log(res)
