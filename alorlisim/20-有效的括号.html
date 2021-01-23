@@ -7,7 +7,11 @@
  var isValid = function(s) {
   const len = s.length
   let arr = []
+  if(arr.length > len / 2) {
+        return false;
+    }
   const map = {
+    // 这个map是把右括号作为key，
     ')': '(',
     '}': '{',
     ']': '['
@@ -16,16 +20,22 @@
     if (!map[i]) { // map里不存在即为左括号
       arr.push(i)
     } else {
-      if (map[i] !== arr.pop()) {
+      if (map[i] !== arr.pop()) { // 匹配栈顶的元素
         return false
       }
-    }
-    if(arr.length > len / 2) {
-        return false;
     }
   }
   return !(arr.length > 0)
 };
+// 另外一种做法，不断删除 ‘（）’{}‘'[]''
+
+function isValid (s) {
+  let len = s.length
+  while (len > 0) {
+    s.replace('{}').replace('()').replace('[]')
+  }
+  return s.length > 0
+}
 
   console.log(isValid('([[[[]]]))'))
 </script>
